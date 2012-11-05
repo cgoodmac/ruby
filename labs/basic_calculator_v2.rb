@@ -7,13 +7,13 @@ while response != 'q'
 	puts "Second?"
 	second = gets.to_f
 
-	if response == 'a'
+	if response == 'a' #addition
 		total  = first + second
-	elsif response =='s'
+	elsif response =='s' #subtract
 		total = first - second
-	elsif response =='m'
+	elsif response =='m' #multiply
 		total = first * second
-	elsif response =='d'
+	elsif response =='d' #divide
 		total = first / second	
 	end
 
