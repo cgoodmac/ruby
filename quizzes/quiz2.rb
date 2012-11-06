@@ -19,13 +19,19 @@ input = gets.chomp
 
 while input != 'q'
 
-	puts "Enter in a color"
-	color = gets.chomp
-	colors.push(color)
-	puts "Here is the current list of colors: #{colors}"
+	if input == 'c'
 
-	puts "Enter in a (c)olor or (q)uit"
-	input= gets.chomp
+		puts "Enter in a color"
+		color = gets.chomp
+		colors.push(color)
+		puts "Here is the current list of colors: #{colors}"
+
+		puts "Enter in a (c)olor or (q)uit"
+		input= gets.chomp
+
+	else
+		puts "Enter in a (c)olor or (q)uit"
+		input= gets.chomp
+	end
+
 end
-
-puts "Here is the final list of colors: #{colors}"
