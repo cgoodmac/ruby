@@ -8,7 +8,7 @@ total = 0
 	total = total + x
 end
 
-puts "Total of sum of integers between 250 and 180,000 is #{total}"
+puts "The total of the sum of integers between 250 and 180,000 is #{total}"
 
 #PART 2
 
