@@ -35,3 +35,5 @@ while input != 'q'
 	end
 
 end
+
+puts "Thank you! Here is the final list of colors: #{colors}"
