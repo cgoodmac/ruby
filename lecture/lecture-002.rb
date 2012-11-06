@@ -22,6 +22,7 @@
 
 # you only use symbols for keys, use strings for anything normally string-like
 # use something very unique for keys
+
 require 'pry'
 
 colors = ['blue', 'green', 'yellow']

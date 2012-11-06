@@ -20,6 +20,7 @@ train_end = gets.chomp
 puts "What stop are you getting off at?"
 station_end = gets.chomp
 
+#assign chosen trains and stops to variables
 if train_start == "n"
 	train_start = n_train
 	station_start = n_train.index(station_start)
@@ -47,18 +48,26 @@ elsif train_end == "6"
 
 end
 
+#find intersection
 intersect = n_train & l_train & six_train
 intersect = intersect.join('')
 
+#if train you start at is different from the train you end at...
 if train_start != train_end
+
+	#calculate distance from start to the intersection
 	number_of_stops1 = (train_start.index(intersect) - station_start).abs
+
+	#calculate distance from intersection to final destination
 	number_of_stops2 = (station_end - train_end.index(intersect)).abs
+
+	#add the two distances together
 	total_number_of_stops = number_of_stops1 + number_of_stops2
 
 	puts "Switch at #{intersect}, get off in #{total_number_of_stops} total stops"
 
+#if train you start at is different from the train you end at then the calc is simple
 else
 	number_of_stops = station_end - station_start
-
 	puts "Get off in #{number_of_stops} stops"
 end

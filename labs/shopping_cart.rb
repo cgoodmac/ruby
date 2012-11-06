@@ -13,6 +13,8 @@ puts prices
 puts "What do you want to buy? ('shoes', 'shirts', 'socks', or 'checkout')"
 input = gets.chomp
 
+
+#loop where you add items to cart and add costs to subtotal
 while input != 'checkout'
 
 	puts "How many #{input} would you like to buy?"
@@ -33,9 +35,13 @@ while input != 'checkout'
 
 end
 
+#calc tax
 tax_amount = subtotal * tax
+
+#calc grand total
 grand_total = subtotal + tax_amount
 
+#print receipt
 puts "Receipt"
 puts "#{cart[:shoes]} shoes = #{cart[:shoes] * prices[:shoes]}"
 puts "#{cart[:shirts]} shirts = #{cart[:shirts] * prices[:shirts]}"
