@@ -1,0 +1,104 @@
+notes
+
+require 'pry'
+require 'HTTParty'
+
+class Crawler
+
+	attr_accessor :url
+
+	def initialize(url)
+		@url = url
+	end
+
+	def parse
+		@p = HTTParty.get(url).split	
+	end	
+
+	def clean
+		@p = parse.reject {|string| string.include?('/')}
+		@p = parse.reject {|string| string.include?('\\')}
+		@p = parse.reject {|string| string.include?('.')}
+		@p = parse.reject {|string| string.include?(':')}
+		@p = parse.reject {|string| string.include?('>')}
+		@p = parse.reject {|string| string.include?('<')}
+		@p = parse.reject {|string| string.include?('=')}
+		@p = parse.reject {|string| string.include?('!')}
+		@p = parse.reject {|string| string.include?('-')}
+		@p = parse.reject {|string| string.include?('[')}
+		@p = parse.reject {|string| string.include?(']')}
+		@p = parse.reject {|string| string.include?('+')}
+		@p = parse.reject {|string| string.include?('(')}
+		@p = parse.reject {|string| string.include?(')')}
+		@p = parse.reject {|string| string.include?('{')}
+		@p = parse.reject {|string| string.include?('}')}
+		@p = parse.reject {|string| string.include?('\"')}
+		@p = parse.reject {|string| string.include?(';')}
+	end	
+
+	def word_count
+		@p.count
+	end
+
+	def characters
+		@characters = {}
+	 	@p.each_byte do |ch|
+	 	@characters[ch] += 1	
+	end
+
+	def vowels
+	 	# @p.count("aeiou") #+ @p.count("e")+ @p.count("i")+ @p.count("o") + @p.count("u")
+	end
+
+
+	# def obama
+	# 	@p.scan(/obama/).length
+	# end
+
+	# def romney
+	# 	@p.scan(/romney/).length
+	# end
+
+	def histogram
+		histogram = {}
+		(0..(data.length-1)).each do |i|
+				sym = data[i].downcase.to
+	 	clean.each { |word| freqs[word] += 1 }
+	 	freqs = freqs.sort_by {|x,y| y}
+	 	freqs.reverse!
+	 	freqs.each {|word, freq| puts word+' '+freq.to_s}
+	end	
+
+end
+
+puts "Analyze (s)ite or (q)uit?"
+input = gets.chomp
+
+while input != 'q'
+
+	puts "Which url?"
+	url = gets.chomp
+
+	c1 = Crawler.new(url)
+
+	parse = c1.parse
+	clean = c1.clean
+	word_count = c1.word_count
+	#vowels = c1.vowels
+	characters = c1.characters
+
+	# consonants = c1.characters - vowels
+	# obama = c1.obama
+	# romney = c1.romney
+
+	puts "Word count: #{word_count}"
+	#puts "Vowels: #{vowels}"
+	puts "Characters: #{characters}"
+	# puts "Occurrences of Obama: #{obama}"
+	# puts "Occurrences of Romney: #{romney}"
+	# histogram = c1.histogram
+
+	puts "Analyze (s)ite or (q)uit?"
+	input = gets.chomp
+
+end	
