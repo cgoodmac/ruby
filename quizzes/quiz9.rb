@@ -14,7 +14,7 @@ class Mathematics
 			@array << i
 		end	
 
-		addition = @array.inject(&:+)
+		addition = @array.inject(&:*)
 	end	
 
 end
