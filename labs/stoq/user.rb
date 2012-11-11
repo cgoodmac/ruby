@@ -7,7 +7,7 @@ class User
 		@name = name
 		@pw = pw
 		@cash = cash
-		@stocks = []
+		@stocks = [] # creates an empty array of stocks when each user object is created
 
 	end
 
