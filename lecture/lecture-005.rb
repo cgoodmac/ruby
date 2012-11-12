@@ -214,19 +214,19 @@ end
 
 #use puts `clear` to clear page after each move
 
-[1] pry(main)> Random.rand(1000)
-=> 0
-[2] pry(main)> Random.rand(1000)
-=> 285
+# [1] pry(main)> Random.rand(1000)
+# => 0
+# [2] pry(main)> Random.rand(1000)
+# => 285
 
 
-Create 10 points using random number generator
-d1 = distance between first two points
-d2 = distance between point 2 to point 3
-add all 10 distances together
+# Create 10 points using random number generator
+# d1 = distance between first two points
+# d2 = distance between point 2 to point 3
+# add all 10 distances together
 
-Point class is each point
-Wire is the container class that contains the points
+# Point class is each point
+# Wire is the container class that contains the points
 
 
 

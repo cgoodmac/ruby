@@ -3,13 +3,13 @@ require 'test/unit'
 require 'yahoofinance'
 
 load 'user.rb'
-load 'display_stocks.rb'
-load 'purchase_stock.rb'
+load 'display_stocks.rb' # I kept these methods in separate files just because this file was getting long and ugly looking. 
+load 'purchase_stock.rb' # I kept these methods in separate files just because this file was getting long and ugly looking.
 
 users = {}
 selected_user = nil
 @logged_in_user = nil
-@quote_type = YahooFinance::StandardQuote
+@quote_type = YahooFinance::StandardQuote 
 
 
 puts "(c)reate user or (l)ogin or (q)uit?"
